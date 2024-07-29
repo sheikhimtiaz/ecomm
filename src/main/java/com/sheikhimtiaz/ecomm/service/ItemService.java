@@ -66,7 +66,7 @@ public class ItemService {
         Map<Item, Long> salesCountByItem = sales.stream()
                 .collect(Collectors.groupingBy(
                         Sale::getItem,
-                        Collectors.counting()
+                        Collectors.summingLong(Sale::getQuantity)
                 ));
 
         return salesCountByItem.entrySet().stream()

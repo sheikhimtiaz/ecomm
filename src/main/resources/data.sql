@@ -1,0 +1,17 @@
+INSERT INTO customer (id, name) VALUES (1, 'Alice');
+INSERT INTO customer (id, name) VALUES (2, 'Bob');
+INSERT INTO item (id, name, price) VALUES (1, 'Laptop', 1200.00);
+INSERT INTO item (id, name, price) VALUES (2, 'Smartphone', 800.00);
+INSERT INTO item (id, name, price) VALUES (3, 'Headphones', 150.00);
+INSERT INTO item (id, name, price) VALUES (4, 'Monitor', 300.00);
+INSERT INTO item (id, name, price) VALUES (5, 'Keyboard', 50.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (1, 1, '2024-07-01', 1, 1200.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (2, 2, '2024-07-02', 1, 800.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (3, 3, '2024-07-01', 1, 150.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (4, 4, '2024-07-03', 1, 300.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (5, 5, '2024-07-03', 1, 50.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (6, 1, '2024-07-04', 1, 1200.00);
+INSERT INTO sale (id, item_id, date, quantity, total_amount) VALUES (7, 3, '2024-07-04', 1, 150.00);
+INSERT INTO wish_list (id, customer_id, item_id) VALUES (1, 1, 1);
+INSERT INTO wish_list (id, customer_id, item_id) VALUES (2, 1, 3);
+INSERT INTO wish_list (id, customer_id, item_id) VALUES (3, 1, 5);

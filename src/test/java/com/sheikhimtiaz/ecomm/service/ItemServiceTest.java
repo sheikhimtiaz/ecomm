@@ -11,16 +11,19 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
+@ActiveProfiles("test")
 public class ItemServiceTest {
 
     @Mock
@@ -82,16 +85,17 @@ public class ItemServiceTest {
         item2.setSales(List.of(new Sale()));
 
         when(saleRepository.findSalesByDateBetween(oneMonthAgo, LocalDate.now())).thenReturn(List.of(
-                new Sale(1L, item1, LocalDate.now(), 5, BigDecimal.valueOf(1200)),
-                new Sale(2L, item2, LocalDate.now(), 1, BigDecimal.valueOf(800))
+                new Sale(1L, item1, LocalDate.now(), 1, BigDecimal.valueOf(800)),
+                new Sale(1L, item1, LocalDate.now(), 1, BigDecimal.valueOf(800)),
+                new Sale(2L, item2, LocalDate.now(), 5, BigDecimal.valueOf(4000))
         ));
 
         List<ItemDto> topSellingItems = itemService.getTopSellingItemsLastMonth();
 
         assertNotNull(topSellingItems);
         assertEquals(2, topSellingItems.size());
-        assertEquals("Laptop", topSellingItems.get(0).getName());
-        assertEquals("Smartphone", topSellingItems.get(1).getName());
+        assertEquals("Smartphone", topSellingItems.get(0).getName());
+        assertEquals("Laptop", topSellingItems.get(1).getName());
     }
 
     @Test
